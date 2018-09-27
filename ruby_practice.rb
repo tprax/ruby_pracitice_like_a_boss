@@ -175,9 +175,67 @@ for x in (0..5)
   puts x
 end
 
-# Each
+# each
 (0..5).each do |x|
   puts x
 end
 
 (0..5).each { |x| puts x }
+
+# map
+arr = [1,2,3,4,5]
+new_arr = arr.map { |num| num.to_s }
+puts new_arr # ['1','2','3','4','5']
+puts arr #[1,2,3,4,5]
+# The original arry is not changed
+# we can pass block and a method as a symbol as well:
+# new_arr = arr.map(&:to_s)
+
+# Select
+new_arr = arr.select { |num| num % 2 == 0 }
+puts new_arr # [2,4]
+
+# Reduce
+val = arr.reduce(&:+)
+puts val # 15
+
+#Next
+x = 0
+(0..5).each do |x|
+    if x % 2 == 0
+      y = 'even'
+    else
+      y = 'odd'
+    next
+  end
+  puts x
+end
+
+# Break
+x = 0
+while x <= 10
+  break if x == 5
+  puts x
+  x += 1
+end
+
+#Retry
+# while x <= 10 
+#   begin
+#     x += 1
+#   rescue => e
+#     puts e
+#   retry
+#   end
+# end
+
+#array
+arr = ['A','B','C','D']
+puts arr[1]
+puts arr[0]
+puts arr[2]
+puts arr[3]
+puts arr[4]
+puts arr.first
+puts arr.last
+
